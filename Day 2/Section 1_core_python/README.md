@@ -25,17 +25,6 @@ python section2_comprehensions.py
 Requirements:
 Python 3.7+.
 
-Contributing:
-Feel free to fork and submit pull requests.
-
-License:
-MIT License.
-
-pgsql
-Copy
-Edit
-
-This version includes the main points and keeps it concise. Adjust links and filenames as needed.
 
 
 
