@@ -1,0 +1,59 @@
+process.py – Level 1: CLI Tool with Modes and Config
+
+Description
+
+This script builds on the Level 0 version by adding:
+
+A command-line interface (CLI) with typer
+Configuration via .env using python-dotenv
+Processing modes: uppercase and snakecase
+Optional output to a file or standard output
+You're starting to modularize logic with small helper functions to keep things clean and reusable.
+
+uppercase: Converts text to uppercase
+snakecase: Replaces spaces with underscores and converts to lowercase
+ Clean CLI with helpful error messages using typer
+Requirements
+
+pip install typer[all] python-dotenv
+
+
+ Basic usage with default mode (uppercase from .env)
+python process.py --input input.txt
+Use snake_case mode explicitly
+python process.py --input input.txt --mode snakecase
+Output to file instead of stdout
+python process.py --input input.txt --output output.txt
+Example
+
+input.txt:
+
+Hello World
+Python Scripts Are Cool
+Mode: uppercase
+python process.py --input input.txt --mode uppercase
+Output:
+
+HELLO WORLD
+PYTHON SCRIPTS ARE COOL
+Mode: snakecase
+python process.py --input input.txt --mode snakecase
+Output:
+
+hello_world
+python_scripts_are_cool
+Internal Function Breakdown
+
+All code remains in one file (process.py) but now includes:
+
+read_lines(path: str) -> Iterator[str]
+transform_line(line: str, mode: str) -> str
+write_output(lines: Iterator[str], output_path: Optional[str]) -> None
+Checklist
+
+ Uses typer for CLI interface
+ Reads default mode from .env using python-dotenv
+ Supports --input, --output, and --mode
+ Handles uppercase and snakecase transformations
+ Logic separated into small functions
+ One script file — ready for future refactoring

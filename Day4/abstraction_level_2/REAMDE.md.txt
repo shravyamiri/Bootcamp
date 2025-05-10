@@ -1,0 +1,57 @@
+Level 2 – Modular Text Processor
+
+Description
+
+This project transforms a simple CLI-based script into a modular, extensible text processing system. The responsibilities are cleanly separated across multiple modules, and the processing logic is now based on a standard function interface that enables easy composition of transformations.
+
+You can define and apply different processing pipelines based on modes like uppercase and snakecase, with the infrastructure ready for chaining multiple transformations.
+
+Project Structure
+
+abstraction-level-2/
+├── main.py         # Entrypoint: reads input, applies processors, writes output
+├── cli.py          # Typer-based CLI definition and argument parsing
+├── core.py         # Core processors and line transformation logic
+├── pipeline.py     # Processor pipelines defined per mode
+└── types.py        # Shared type definitions
+Requirements
+
+pip install typer[all] python-dotenv
+
+
+CLI Usage
+
+python main.py --input input.txt
+python main.py --input input.txt --mode snakecase
+python main.py --input input.txt --output output.txt
+Supported Modes
+
+Mode	Description
+uppercase	Converts text to uppercase
+snakecase	Converts text to lowercase and replaces spaces with underscores
+How It Works
+
+main.py loads the input file and mode
+cli.py parses arguments and handles CLI help
+pipeline.py provides a list of processor functions for each mode
+core.py contains the individual transformation functions like to_uppercase and to_snakecase
+types.py defines ProcessorFn = Callable[[str], str] used across the app
+Example
+
+Input (input.txt):
+
+Hello World
+Python is Fun
+Command:
+python main.py --input input.txt --mode snakecase
+Output:
+
+hello_world
+python_is_fun
+Checklist
+
+ Project has five modules: main.py, cli.py, core.py, pipeline.py, types.py
+ Uses ProcessorFn = Callable[[str], str] consistently
+ Can add new processors easily by updating core.py and pipeline.py
+ CLI with --input, --output, and --mode still works
+ No circular imports – types are centralized in types.py

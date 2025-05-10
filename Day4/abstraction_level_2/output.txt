@@ -1,0 +1,13 @@
+C:\Users\Shravya Miriyanam\OneDrive\Desktop\Day4>cd abstraction-level-2
+C:\Users\Shravya Miriyanam\OneDrive\Desktop\Day4\abstraction-level-2 python main.py --input input.txt --output output.txt --mode basic
+
+[INFO] Reading from input.txt
+[INFO] Using mode: basic
+[INFO] Applying processors: to_uppercase -> to_snakecase
+[INFO] Writing to output.txt
+Processing complete.
+
+nginx content:
+
+HELLO_WORLD
+MY_PYTHON_SCRIPT

@@ -1,0 +1,6 @@
+[INFO] Started processing 3 lines...
+[TRACE] Line 1: ['start', 'warn', 'general', 'end']
+[TRACE] Line 2: ['start', 'error', 'general', 'end']
+[TRACE] Line 3: ['start', 'general', 'end']
+[INFO] Processing completed.
+[INFO] Metrics server running at http://localhost:8000

@@ -1,0 +1,7 @@
+# config.yaml
+watch_dir: "C:/path/to/watch_dir"
+unprocessed_dir: "unprocessed"
+underprocess_dir: "underprocess"
+processed_dir: "processed"
+logging_enabled: true
+retry_interval: 5  # seconds

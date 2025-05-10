@@ -1,0 +1,11 @@
+nodes:
+  - tag: start
+    type: processors.start
+  - tag: error
+    type: processors.filters
+  - tag: warn
+    type: processors.filters
+  - tag: general
+    type: processors.filters
+  - tag: end
+    type: processors.output

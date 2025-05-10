@@ -1,0 +1,42 @@
+process.py – Level 0: Basic Script (No Abstraction)
+
+Description
+
+This is a simple, one-purpose Python script written without any functions or abstractions. It reads input line by line from standard input (stdin), strips leading and trailing whitespace from each line, converts the result to uppercase, and prints it to standard output (stdout).
+
+This script is intentionally left unrefactored for learning purposes — it's your "before" snapshot.
+ Usage
+ Requirements
+Python 3.x
+Running the Script
+You can run the script by providing input via a file or manually via the terminal.
+
+Option 1: Using a file as input
+
+python process.py < input.txt
+Option 2: Typing input manually (end with Ctrl+D on Unix/macOS or Ctrl+Z then Enter on Windows)
+
+python process.py
+Example
+
+Input (from input.txt):
+
+   hello world    
+python scripting  
+  Level 0   
+Command:
+
+python process.py < input.txt
+Output:
+
+HELLO WORLD
+PYTHON SCRIPTING
+LEVEL 0
+Checklist
+
+ Reads stdin line by line
+ Strips leading and trailing whitespace
+ Converts each line to uppercase
+ Prints the result to stdout
+ Uses only built-in Python tools
+ No functions or abstractions
