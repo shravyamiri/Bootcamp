@@ -1,0 +1,5 @@
+# abstraction_level_3/main.py
+from .cli import app
+
+if __name__ == "__main__":
+    app()
