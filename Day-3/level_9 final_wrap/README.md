@@ -29,29 +29,18 @@ Running the System
 Single File Mode
 Processes one file and exits.
 
-bash
-Copy
-Edit
+
 python main.py --input path/to/file.txt
 Watch Mode
 Continuously monitors the watch_dir/unprocessed/ folder and processes files as they appear.
 
-bash
-Copy
-Edit
 python main.py --watch
 2. Docker Execution
 Build the Docker image:
-
-bash
-Copy
-Edit
 make build-docker
+
 Run the container:
 
-bash
-Copy
-Edit
 make run-docker
 FastAPI Endpoints
 Method	Endpoint	Description
@@ -72,10 +61,8 @@ API: Use the /upload endpoint to send files via HTTP
 
 Command Line Tool:
 
-bash
-Copy
-Edit
 curl -F 'file=@sample.txt' http://localhost:8000/upload
+
 Monitoring Uptime
 You can use a free uptime monitoring service like Better Uptime to track system availability:
 
@@ -96,18 +83,17 @@ make build-package	Build the Python package (if applicable)
 make publish-package	Publish the package to PyPI (optional)
 
 Project Structure
-bash
-Copy
-Edit
+
 .
-├── main.py              # Entry point with CLI mode selection
-├── processor.py         # File processing logic
-├── api/server.py        # FastAPI REST API
-├── watch_dir/unprocessed/  # Folder watched in continuous mode
-├── Makefile             # Automation script
-├── Dockerfile           # Docker configuration
-├── requirements.txt     # Python dependencies
-└── README.md            # Project documentation
+├── main.py              
+├── processor.py         
+├── api/server.py        
+├── watch_dir/unprocessed/  
+├── Makefile             
+├── Dockerfile           
+├── requirements.txt     
+└── README.md            
+
 License
 This project is for educational and internal use. For external redistribution, please refer to the licensing terms specified (if any).
 
