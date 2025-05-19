@@ -1,0 +1,1 @@
+sqlalchemy[asyncio] asyncpg psycopg2-binary alembic pydantic

@@ -1,0 +1,1230 @@
+{
+    "documents": [
+        {
+            "bioctype": "BioCCollection",
+            "source": "PMC",
+            "date": "20250106",
+            "key": "pmc.key",
+            "version": "1.0",
+            "infons": {},
+            "documents": [
+                {
+                    "bioctype": "BioCDocument",
+                    "id": "PMC3166946",
+                    "infons": {
+                        "license": "CC BY"
+                    },
+                    "passages": [
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 0,
+                            "infons": {
+                                "article-id_doi": "10.1186/1471-2105-12-334",
+                                "article-id_pmc": "PMC3166946",
+                                "article-id_pmid": "21831299",
+                                "article-id_publisher-id": "1471-2105-12-334",
+                                "fpage": "334",
+                                "license": "This is an Open Access article distributed under the terms of the Creative Commons Attribution License (http://creativecommons.org/licenses/by/2.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.",
+                                "lpage": "334",
+                                "name_0": "surname:Toofanny;given-names:Rudesh D",
+                                "name_1": "surname:Simms;given-names:Andrew M",
+                                "name_2": "surname:Beck;given-names:David AC",
+                                "name_3": "surname:Daggett;given-names:Valerie",
+                                "section_type": "TITLE",
+                                "type": "front",
+                                "volume": "12",
+                                "year": "2011"
+                            },
+                            "text": "Implementation of 3D spatial indexing and compression in a large-scale molecular dynamics simulation database for rapid atomic contact detection",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 145,
+                            "infons": {
+                                "section_type": "ABSTRACT",
+                                "type": "abstract_title_1"
+                            },
+                            "text": "Background",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 156,
+                            "infons": {
+                                "section_type": "ABSTRACT",
+                                "type": "abstract"
+                            },
+                            "text": "Molecular dynamics (MD) simulations offer the ability to observe the dynamics and interactions of both whole macromolecules and individual atoms as a function of time. Taken in context with experimental data, atomic interactions from simulation provide insight into the mechanics of protein folding, dynamics, and function. The calculation of atomic interactions or contacts from an MD trajectory is computationally demanding and the work required grows exponentially with the size of the simulation system. We describe the implementation of a spatial indexing algorithm in our multi-terabyte MD simulation database that significantly reduces the run-time required for discovery of contacts. The approach is applied to the Dynameomics project data. Spatial indexing, also known as spatial hashing, is a method that divides the simulation space into regular sized bins and attributes an index to each bin. Since, the calculation of contacts is widely employed in the simulation field, we also use this as the basis for testing compression of data tables. We investigate the effects of compression of the trajectory coordinate tables with different options of data and index compression within MS SQL SERVER 2008.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 1368,
+                            "infons": {
+                                "section_type": "ABSTRACT",
+                                "type": "abstract_title_1"
+                            },
+                            "text": "Results",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 1376,
+                            "infons": {
+                                "section_type": "ABSTRACT",
+                                "type": "abstract"
+                            },
+                            "text": "Our implementation of spatial indexing speeds up the calculation of contacts over a 1 nanosecond (ns) simulation window by between 14% and 90% (i.e., 1.2 and 10.3 times faster). For a 'full' simulation trajectory (51 ns) spatial indexing reduces the calculation run-time between 31 and 81% (between 1.4 and 5.3 times faster). Compression resulted in reduced table sizes but resulted in no significant difference in the total execution time for neighbour discovery. The greatest compression (~36%) was achieved using page level compression on both the data and indexes.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 1945,
+                            "infons": {
+                                "section_type": "ABSTRACT",
+                                "type": "abstract_title_1"
+                            },
+                            "text": "Conclusions",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 1957,
+                            "infons": {
+                                "section_type": "ABSTRACT",
+                                "type": "abstract"
+                            },
+                            "text": "The spatial indexing scheme significantly decreases the time taken to calculate atomic contacts and could be applied to other multidimensional neighbor discovery problems. The speed up enables on-the-fly calculation and visualization of contacts and rapid cross simulation analysis for knowledge discovery. Using page compression for the atomic coordinate tables and indexes saves ~36% of disk space without any significant decrease in calculation time and should be considered for other non-transactional databases in MS SQL SERVER 2008.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 2496,
+                            "infons": {
+                                "section_type": "INTRO",
+                                "type": "title_1"
+                            },
+                            "text": "Background",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 2507,
+                            "infons": {
+                                "section_type": "INTRO",
+                                "type": "paragraph"
+                            },
+                            "text": "Molecular dynamics (MD) simulations are routinely used to study the dynamic and structural properties of proteins and other macromolecules. MD simulations provide atomic-level resolution of a protein andits surrounding solvent environment as a function of time. There are no experimental techniques that can provide this level of detail. The direct results of an MD simulation are the coordinates of all atoms as a function of simulation time. Simulation time is divided into discrete time points or frames (akin to movie frames) that represent the coordinates for the entire system at that precise time. The assembled coordinate 'trajectories' (i.e. all frames) can be analysed for various factors and visualized to produce movies (examples of which can be found at http://www.dynameomics.org).",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 3303,
+                            "infons": {
+                                "section_type": "INTRO",
+                                "type": "paragraph"
+                            },
+                            "text": "Nonbonded interactions within a protein are critical to its thermodynamic behaviour, contributing to packing and electrostatic energies reflected in the enthalpy. Such nonbonded interactions include but are not limited to hydrogen bonds, salt bridges, and hydrophobic contacts. Fluctuations in these nonbonded contacts as a function of time dictate dynamic behaviour and the conformations accessible to the protein. Dynamics are crucial for our understanding of protein function, folding and misfolding.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 3807,
+                            "infons": {
+                                "section_type": "INTRO",
+                                "type": "paragraph"
+                            },
+                            "text": "We have recently undertaken and completed a large scale project, Dynameomics, in which we have simulated the native states and unfolding pathways of representatives of essentially all autonomous protein fold families. These fold families, or metafolds, were chosen based on a consensus between the SCOP, CATH and DALI domain dictionaries, which we call a consensus domain dictionary (CDD). For our recent release set there are 807 metafolds, representing 95% of the known autonomous domains in the Protein Data Bank (PDB). The Dynameomics database represents the largest collection of protein simulations in the world and contains 104 more structures than the PDB.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 4472,
+                            "infons": {
+                                "section_type": "INTRO",
+                                "type": "paragraph"
+                            },
+                            "text": "The coordinates of the MD simulations and our set of standard analyses have been loaded into a relational database. This Dynameomics database is implemented using Microsoft SQL server with the Windows Server operating system (see for a more detailed description). The Dynameomics protocol includes one native state simulation, and at least 5 thermal unfolding simulations, which can be used to characterize the unfolding process of the domains. In order to explore the dynamics and folding in these simulations we often calculate the nonbonded contacts for each frame of the simulation. This problem has been well studied and is also known as the nearest neighbor search problem. The calculation is computationally expensive; as the na\u00efve approach is to test all possible pairs of atoms in the system. The number of protein atoms or amino acids is often used as a proxy for the overall simulation size. The average number of protein atoms in the proteins in our Dynameomics set of simulations is 2150, with the smallest system consisting of 494 protein atoms and the largest of 6584 protein atoms. As all of the atoms in our simulations are in motion, all pairs of atoms need to be re-evaluated for each frame of the simulation, so in the case of a 51 ns native state simulation sampled at 1 picosecond (ps) resolution, we have 51,000 frames of pairs of contacts to evaluate. Calculating the nonbonded contacts without any acceleration method is not practical for a large number of simulations such as in a project like Dynameomics.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 6006,
+                            "infons": {
+                                "section_type": "INTRO",
+                                "type": "title_2"
+                            },
+                            "text": "Spatial indexing overview",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 6032,
+                            "infons": {
+                                "section_type": "INTRO",
+                                "type": "paragraph"
+                            },
+                            "text": "Spatial indexing is a commonly used method by programmers of 3D video games, in which collision between objects are detected, though the methods date back further in molecular simulation and other approaches similar in spirit have been described. The basic approach based on the cell index method is as follows: in order to accelerate the detection of near neighbour objects in 3D space, the space is split into relatively uniform small 3D bins. Each of the bins is given an index and the objects in the system are sorted into the indexed bins based on their 3D coordinates. Neighboring objects can then be detected by performing a distance calculation on all pairs of objects in the same or immediately adjacent neighboring bins. There are a number of other algorithms that could be used to speed up the discovery of nearest neighbors including B-trees, kd-trees, Z-order curves, Verlet neighbor lists, however, we decided to implement the cell index like method since we already have experience in implementing this in our in-house MD simulation software and have found it to be very effecient.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 7129,
+                            "infons": {
+                                "section_type": "INTRO",
+                                "type": "paragraph"
+                            },
+                            "text": "Our MD simulation and analysis engine, in lucem molecular mechanics (ilmm) implements a spatial indexing (hashing) algorithm for rapid parallel calculation of nonbonded terms. The Dynameomics simulations are performed in a periodic box of explicitly represented water molecules with the hydrated protein in the center of the box. This periodic box is conceptually similar to an orthorhombic unit cell in crystallography. We typically employ the NVE ensemble as the framework for our classical simulation where the number of atoms (N), periodic box volume (V), and total energy (E) are constant throughout the simulation. The fixed volume is achieved by using a fixed set of periodic box dimensions for the system. As such a system's spatial hash structure can be utilized unchanged throughout the simulation. To accommodate typical nonbonded interaction criteria we split our periodic box into bins of at least 5.4 \u00c5 on the three dimensions. This distance was chosen as it is the maximum distance we consider a pair of atoms to be in contact (Figure 1A).",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 8185,
+                            "infons": {
+                                "file": "1471-2105-12-334-1.jpg",
+                                "id": "F1",
+                                "section_type": "FIG",
+                                "type": "fig_caption"
+                            },
+                            "text": "Schematic showing the spatial binning of a periodic box and subsequent evaluation of atomic contacts in adjacent bins. a). Schematic showing the spatial binning of a periodic box. In this example, the protein (1enh, the engrailed homeodomain) is simulated in a periodic box of water molecules with dimensions of 50 \u00c5. The periodic box is split into smaller boxes of 10 \u00c5 these are the 3 dimensional bins. For clarity the boxes in this figure are 10 \u00c5, in our implementation we use box dimensions of 5.4 \u00c5. Each bin is assigned an index and hence every atom at every time point will have associated X, Y, Z coordinates and a bin index. b) Schematic describing the evaluation of adjacent bins. To reduce the computational expense for detecting nearest neighbors one evaluates the atomic pair distance for atoms that are within the same bin and the immediately adjacent bins, shown by the cyan boxes. The white transparent sphere has a radius represented by the cutoff distance used as our criteria for the consideration of an atom to be in contact with the atom at the center of the sphere.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 9278,
+                            "infons": {
+                                "section_type": "INTRO",
+                                "type": "paragraph"
+                            },
+                            "text": "SQL Server 2008 supports two types of compression, which can be applied separately to the data and indices associated with a table (row and page level compression is only available in MS SQL server 2008). Row compression is a more efficient representation of row data; it involves storing fixed length columns in a manner similar to variable length columns where repeated bytes are compressed. For coordinate columns, which are a set of five 32 bit fixed length columns, the storage savings for row compression are small. Page compression, which is built on top of row compression, stores repeating values in a single structure for each page and then references that structure. This can result in significant savings as coordinate tables contain numerous columns with repeated data like atom number that are used for relational joins to retrieve atom information like name, mass, element.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 10167,
+                            "infons": {
+                                "section_type": "RESULTS",
+                                "type": "title_1"
+                            },
+                            "text": "Results and Discussion",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 10190,
+                            "infons": {
+                                "section_type": "RESULTS",
+                                "type": "paragraph"
+                            },
+                            "text": "We investigated the effect of using spatial indexing in simulation coordinate tables to accelerate the discovery of nonbonded atomic contacts. We compared the execution times for the commonly employed heavy-atom (i.e. non-hydrogen) contact query for 1 ns (1000 frames) of each of our 11 representative metafolds selected from across the spectrum of system size (Figure 2, Table 1). In Figure 3, we show the average execution time for the 1 ns heavy-atom contact queries with and without the use of spatial indexing. Additional file 1, Table S1 presents a more detailed comparison of the execution times with and without the spatial index. The results show that for all 11 cases that we achieved between 13.8 and 90.3% decrease in execution time when using spatial indexing, i.e. the time to calculate contacts was between 1.2 and 10.3 times faster. As expected, query times decreased as the number of distance calculations is decreased (p < 0.05) for 11 metafolds. For one very small transcription factor metafold (PDB: 2ADR) the heavy-atom contact execution time did not significantly change when using spatial indexing. Further investigation of this case indicates that very small systems enjoy a much more limited decrease in run-time. Specifically, the transcription factor of 2ADR has a radius of gyration of 8.5 \u00c5 and as each spatial bin has the minimum dimensions of 5.4 \u00c5 by 5.4 \u00c5 by 5.4 \u00c5, the entire protein is covered by one 27-bin chunk. For such cases, the spatial index method reduces into the na\u00efve neighbour discovery method in which all pairs of heavy-atoms are considered and there is no significant difference in run-time. However, it is worth noting that the run-time did not increase. Practically speaking, this means that we do not pay a penalty for the indexing when it is not effective, and, as a result, all proteins may be treated identically, regardless of size.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 12085,
+                            "infons": {
+                                "file": "1471-2105-12-334-2.jpg",
+                                "id": "F2",
+                                "section_type": "FIG",
+                                "type": "fig_caption"
+                            },
+                            "text": "11 metafolds representative of sequence length in Dynameomics. The proteins are ordered by the number of amino acid residues in each protein. Also see, Table 1.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 12246,
+                            "infons": {
+                                "file": "T1.xml",
+                                "id": "T1",
+                                "section_type": "TABLE",
+                                "type": "table_caption"
+                            },
+                            "text": "11 representative proteins - number of residues and number of atoms",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 12314,
+                            "infons": {
+                                "file": "T1.xml",
+                                "id": "T1",
+                                "section_type": "TABLE",
+                                "type": "table",
+                                "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<table xmlns:xlink=\"http://www.w3.org/1999/xlink\" frame=\"hsides\" rules=\"groups\"><thead><tr><th align=\"left\">PDB4</th><th align=\"left\">Name</th><th align=\"left\">Residue Range</th><th align=\"left\"># residues</th><th align=\"left\"># protein atoms</th></tr></thead><tbody><tr><td align=\"left\"><ext-link ext-link-type=\"pdb\" xlink:href=\"2adr\">2adr</ext-link></td><td align=\"left\">Domain of Adr1 DBD from S. cerevisiae</td><td align=\"left\">102-130</td><td align=\"left\">29</td><td align=\"left\">496</td></tr><tr><td align=\"left\"><ext-link ext-link-type=\"pdb\" xlink:href=\"1nr2\">1nr2</ext-link></td><td align=\"left\">Thymus and activation-regulated chemokine</td><td align=\"left\">8-69</td><td align=\"left\">62</td><td align=\"left\">1011</td></tr><tr><td align=\"left\"><ext-link ext-link-type=\"pdb\" xlink:href=\"1okt\">1okt</ext-link></td><td align=\"left\">Glutathione S-transferase</td><td align=\"left\">1-85</td><td align=\"left\">85</td><td align=\"left\">1412</td></tr><tr><td align=\"left\"><ext-link ext-link-type=\"pdb\" xlink:href=\"2tgi\">2tgi</ext-link></td><td align=\"left\">Domain of transforming growth factor-beta 2 (TGF- B2)</td><td align=\"left\">1-112</td><td align=\"left\">112</td><td align=\"left\">1750</td></tr><tr><td align=\"left\"><ext-link ext-link-type=\"pdb\" xlink:href=\"1d0n\">1d0n</ext-link></td><td align=\"left\">Horse plasma gelsolin</td><td align=\"left\">27-159</td><td align=\"left\">133</td><td align=\"left\">2095</td></tr><tr><td align=\"left\"><ext-link ext-link-type=\"pdb\" xlink:href=\"1bp5\">1bp5</ext-link></td><td align=\"left\">Domain of serum transferrin</td><td align=\"left\">82-246</td><td align=\"left\">165</td><td align=\"left\">2487</td></tr><tr><td align=\"left\"><ext-link ext-link-type=\"pdb\" xlink:href=\"1hgu\">1hgu</ext-link></td><td align=\"left\">Human growth hormone</td><td align=\"left\">2-190</td><td align=\"left\">189</td><td align=\"left\">3011</td></tr><tr><td align=\"left\"><ext-link ext-link-type=\"pdb\" xlink:href=\"1p88\">1p88</ext-link></td><td align=\"left\">3-phosphoshikimate 1-carboxyvinyltransferase</td><td align=\"left\">25-240</td><td align=\"left\">216</td><td align=\"left\">3272</td></tr><tr><td align=\"left\"><ext-link ext-link-type=\"pdb\" xlink:href=\"1fzw\">1fzw</ext-link></td><td align=\"left\">Monomer of glucose-1-phosphate thymidylyltransferase</td><td align=\"left\">2-293</td><td align=\"left\">292</td><td align=\"left\">4560</td></tr><tr><td align=\"left\"><ext-link ext-link-type=\"pdb\" xlink:href=\"1qaz\">1qaz</ext-link></td><td align=\"left\">Alginate Lyase A1-III</td><td align=\"left\">4-354</td><td align=\"left\">351</td><td align=\"left\">5495</td></tr><tr><td align=\"left\"><ext-link ext-link-type=\"pdb\" xlink:href=\"1ehe\">1ehe</ext-link></td><td align=\"left\">Cytochrome P450nor</td><td align=\"left\">5-403</td><td align=\"left\">399</td><td align=\"left\">6217</td></tr></tbody></table>\n"
+                            },
+                            "text": "PDB4\tName\tResidue Range\t# residues\t# protein atoms\t \t2adr\tDomain of Adr1 DBD from S. cerevisiae\t102-130\t29\t496\t \t1nr2\tThymus and activation-regulated chemokine\t8-69\t62\t1011\t \t1okt\tGlutathione S-transferase\t1-85\t85\t1412\t \t2tgi\tDomain of transforming growth factor-beta 2 (TGF- B2)\t1-112\t112\t1750\t \t1d0n\tHorse plasma gelsolin\t27-159\t133\t2095\t \t1bp5\tDomain of serum transferrin\t82-246\t165\t2487\t \t1hgu\tHuman growth hormone\t2-190\t189\t3011\t \t1p88\t3-phosphoshikimate 1-carboxyvinyltransferase\t25-240\t216\t3272\t \t1fzw\tMonomer of glucose-1-phosphate thymidylyltransferase\t2-293\t292\t4560\t \t1qaz\tAlginate Lyase A1-III\t4-354\t351\t5495\t \t1ehe\tCytochrome P450nor\t5-403\t399\t6217\t \t",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 12979,
+                            "infons": {
+                                "file": "1471-2105-12-334-3.jpg",
+                                "id": "F3",
+                                "section_type": "FIG",
+                                "type": "fig_caption"
+                            },
+                            "text": "Comparison of heavy-atom contacts query with and without spatial indexing for 11 metafold representatives over 1 ns. With no spatial indexing (circles) applied the calculation of heavy-atom contacts over 1 ns (1000 frames) takes an average of ~20 minutes (n = 6) for the largest protein 1ehe. For the smallest protein, 2adr, the average time taken is around 10 seconds. When spatial indexing is applied (triangles) the is a dramatic decrease in execution time for 1ehe from ~20 minutes to an average of 1 minute 46 seconds. There is almost no change in execution time for 2adr since it is an extremely small protein, such that spatial indexing has little effect.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 13642,
+                            "infons": {
+                                "section_type": "RESULTS",
+                                "type": "paragraph"
+                            },
+                            "text": "The significant decrease in execution time for identification of nonbonded contacts had three significant implications. First, contact calculations are substantially more tractable for very large proteins in Dynameomics. Considering one of the largest fold representatives (1ehe) in our Dynameomics set, which contains 399 residues (plus a heme moiety), the average execution time dropped from 18 minutes and 10 seconds to just under 1 minute and 45 seconds. Second, the query execution time is fast enough to enable us to perform large-scale multi-simulation analyses. Dynameomics is really about the knowledge discovery over a large number of protein systems. For example, a key query for Dynameomics is to identify all of the types of hydrophobic contacts across the native state simulations for all of the 807 metafold representatives to identify patterns. Such an all-encompassing search is no longer impractical as contact queries across multiple servers can be executed to return the contact set rapidly. Third, as the calculation can be run in near real time, contact queries can be performed on the fly where the result set can be streamed through analyses rather than stored permanently and regenerated when required. The cost of disk space to save the contact results may exceed the size of the original coordinate data from which they were derived. Hence, we would need to more than double the size of our existing database configuration if we were to consider storing the result of contact queries for all simulations. Furthermore, the ability to run ad-hoc on-the-fly analyses is the heart of our exploratory mining efforts for Dynameomics. Our exploratory visualization tool for extremely large datasets, dubbed DIVE (Data Intensive Visualization Engine) can connect to our SQL database and rapidly visualize, and act upon, millions of data points in many dimensions such as the nonbonded contact queries.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 15563,
+                            "infons": {
+                                "section_type": "RESULTS",
+                                "type": "paragraph"
+                            },
+                            "text": "The heavy-atom contact query is a computationally expensive calculation that queries the atomic coordinate tables (the largest tables in our database). We decided to use this query (under spatial indexing conditions) as the basis for testing different options of data and index compression. The goal of this aspect of the study was to find a data and index compression scheme for the coordinate tables that saves disk space but does not significantly affect query execution times. We investigated 9 sets of data and index compression options and applied each of these to each of our 11 metafold representative coordinate tables. As an initial test, we calculated the heavy-atom contacts for the first nanosecond of each metafold's trajectory with each set of compression options for the coordinates table. Figure 4 shows the average execution times for calculating heavy-atom contacts (with and without spatial indexing) for 1 ns (i.e. 1000 frames) for each metafold with every type of compression. Figure 5 compares the average compression for each set of data and index compression options across all the 11 metafolds. The average compression ranges from 8 - 36%. The lowest level of compression arises from having no data compression but row compression on the index. The largest level of compression was obtained using page compression on both the data and indexes.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 16933,
+                            "infons": {
+                                "file": "1471-2105-12-334-4.jpg",
+                                "id": "F4",
+                                "section_type": "FIG",
+                                "type": "fig_caption"
+                            },
+                            "text": "Comparison of 9 sets of compression options and their effect on query execution times with and without spatial indexing. P = page, R = row, N = none, e.g. PP represents Page compression on both the data and index where as NR represents no data compression but row compression on the index. Execution times with spatial indexing off are in circles and triangles denote spatial indexing on.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 17322,
+                            "infons": {
+                                "file": "1471-2105-12-334-5.jpg",
+                                "id": "F5",
+                                "section_type": "FIG",
+                                "type": "fig_caption"
+                            },
+                            "text": "Total table size using different compression options and total execution times for the 1 ns contacts query. P = page, R = row, N = none, e.g. PP represents Page compression on both the data and index where as NR represents no data compression but row compression on the index. Total execution times are the sum of the individual representatives query times. Even with the largest compression using page compression on both the data and indexes, total execution times were comparable to the non-compressed tables.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 17835,
+                            "infons": {
+                                "section_type": "RESULTS",
+                                "type": "paragraph"
+                            },
+                            "text": "Comparing the total execution times (Figure 5) for the heavy-atom contacts over 1 ns on the compressed tables versus the non-compressed tables all sets of compression options lie within the standard deviation of the total execution times for the non-compressed tables. This result is significant as it indicates that we can adopt any of the compression sets and retain the same fast execution time for the heavy-atom contacts query. The prospect of being able to compress our coordinate data by 36%, using both page data and page index compression, was investigated further by calculating heavy-atom contacts for the full 51 ns (i.e., 51,000 frames) of each simulation. We compared the execution times (with and without spatial indexing) of the non-compressed coordinate tables to that of the 36% compressed data (Figure 6). There is no significant difference (Additional file 2, Table S2a, b) in execution times for examining the full trajectories when calculating contacts from an uncompressed coordinate table and page compression on coordinate tables and indexes with and without spatial indexing. This result confirms our earlier finding on uncompressed tables and demonstrates that the problem scales appropriately (Figure 5). Additional file 3, Table S3a, b compares the full trajectory execution times for the compressed and non-compressed tables with and without spatial indexing. Spatial indexing, both with and without compression, is 1.4 to ~5.3 times faster for all but the smallest two proteins. As 85% of the Dynameomics database is made up of atomic coordinate simulation data, a 36% space saving of 70 TB of uncompressed data will net an additional 21 TB of disk space. This compression scheme is oriented towards repeated values, such as those found in dimension keys.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 19622,
+                            "infons": {
+                                "file": "1471-2105-12-334-6.jpg",
+                                "id": "F6",
+                                "section_type": "FIG",
+                                "type": "fig_caption"
+                            },
+                            "text": "Comparison of heavy-atom query execution times with and without spatial indexing using uncompressed tables and page/page compression. NN denotes no data and no index compression whilst PP denotes page compression on the data and index. There is no significant difference in execution times.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 19913,
+                            "infons": {
+                                "section_type": "RESULTS",
+                                "type": "paragraph"
+                            },
+                            "text": "These data suggest that for other static (i.e. non-transactional) databases implemented in MS SQL Server 2008, compression may offer substantial disk savings. Furthermore, the framework of spatial indexing in a SQL database to speed up the discovery of near neighbours can be applied to other neighbor discovery problems, such as calculation of the distance between galaxies and/or planets in the field of astrophysics. The spatial indexing framework can be applied to those problems where the space is not bound to three-dimensions, but have fixed dimensional boundaries, and could be used to cluster highly dimensional data sets.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 20545,
+                            "infons": {
+                                "section_type": "CONCL",
+                                "type": "title_1"
+                            },
+                            "text": "Conclusions",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 20557,
+                            "infons": {
+                                "section_type": "CONCL",
+                                "type": "paragraph"
+                            },
+                            "text": "The spatial indexing implementation presented herein for our multi-terabyte MD simulation database decreases neighbour discovery and interaction query execution times by up to 90%. While the speed-up for small proteins was less pronounced, the implementation was suitable for all sizes of simulation systems without introducing overhead for small systems and significant improvement in performance for larger systems. In addition, this work shows that all sets of page and row compression across the data and indexes we tested have no appreciable effect on the run-time of the heavy-atom contact query. The page/page compression set for data in indexes yielded a 36% disk savings for full trajectories over non-compressed tables. This represents a huge savings for large data sets.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 21339,
+                            "infons": {
+                                "section_type": "METHODS",
+                                "type": "title_1"
+                            },
+                            "text": "Methods",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 21347,
+                            "infons": {
+                                "section_type": "METHODS",
+                                "type": "title_2"
+                            },
+                            "text": "MD Simulations",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 21362,
+                            "infons": {
+                                "section_type": "METHODS",
+                                "type": "paragraph"
+                            },
+                            "text": "Details of how we selected the 807 metafolds for simulation in our Dynameomics project can be found elsewhere (). The MD simulations were performed using in lucem molecular mechanics (ilmm) following the Dynameomics protocol described by Beck et al.. Each of the metafolds had at least one native-state simulation performed at 298 K for at least 51 ns of simulation time, along with 5-8 unfolding simulations at 498 K with two of these simulations being at least 51 ns long. Structures were saved every 0.2 ps for the shorter simulations and every 1 ps for the longer simulations. Coordinates and analyses from the simulations were loaded into our Dynameomics database (for a more in-depth discussion on the development and technical details of the database see).",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 22126,
+                            "infons": {
+                                "section_type": "METHODS",
+                                "type": "paragraph"
+                            },
+                            "text": "When a simulation is loaded into the database, it is assigned a unique identifier and a specific location, i.e. server and database. Three tables were created in the assigned database to hold the underlying data for the simulation: a trajectory coordinate table, a box table, and bins table. Each table was named by the simulation identifier, for example the tables for simulation with identifier 37 would be \"Coord_37,\" \"Box_37,\" and \"Bins_37.\" The coordinate table contained columns for each of the three-dimensional coordinates, atom number, step, structure identifier, and instance (which is used to identify monomers in a multimer system). The box table had columns for the x, y, and z dimensions of the periodic box at each time point. The bins table recorded the set of adjacent bins for each primary bin in the box. All three tables had clustered primary keys and constraints and the coordinate table also had a secondary covering index.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 23072,
+                            "infons": {
+                                "section_type": "METHODS",
+                                "type": "paragraph"
+                            },
+                            "text": "We selected 11 metafolds to represent the range in sequence size that our Dynameomics project covers from the smallest: ADR1 DNA-binding domain from Saccharomyces Cerevisiae (2adr, 29 residues and a zinc ion,); to one of our largest: cytochrome P450 (1ehe, 399 residues and heme,). Figure 2 shows the metafolds selected. In the test conducted in this study we chose to look at the 51 ns native state (298 K) simulations for each of these proteins.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 23520,
+                            "infons": {
+                                "section_type": "METHODS",
+                                "type": "title_2"
+                            },
+                            "text": "Implementation of spatial indexing in the database",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 23571,
+                            "infons": {
+                                "section_type": "METHODS",
+                                "type": "paragraph"
+                            },
+                            "text": "To calculate contacts in SQL, an expensive self-join of the coordinate table must be used in addition to joins with structural data tables. A simplified version of this query is shown in Figure 7. Conditions in the JOIN clauses ensure that comparisons were made within the same frame (a.step = b.step) and with a granularity of 1 ps (a.step % 500 = 0 and b.step % 500 = 0). As distance is reflexive, we only calculated the distance from a heavy-atom in \"a\" to another in \"b\" where the atom index of a was less than b (a.atom_number < b.atom_number). We also excluded contacts in the same or adjacent residues (a.residue_id < b.residue_id - 1) as these are either through bond contacts or simply non-informative. Finally, the query only considered heavy-atoms, that is all non-hydrogen atoms (c.heavy_atom = 1 and d.heavy_atom = 1).",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 24403,
+                            "infons": {
+                                "file": "1471-2105-12-334-7.jpg",
+                                "id": "F7",
+                                "section_type": "FIG",
+                                "type": "fig_caption"
+                            },
+                            "text": "Simplified heavy-atom contacts query. The size of the join is reduced by applying two right associative join clauses, shown in bold. Right associative joins are a mechanism to control the order of join evaluation. In this case we insure that only the rows meeting satisfying the given predicates participate in the final self-join (i.e. heavy-atoms and only the first 1 ns of simulation time). The spatial-index join is shown in bold-italics. This clause allows SQL to trim away most atoms outside the cutoff range without needing to perform the distance calculation, greatly reducing the number of operations as well as rows that would later be thrown away by the distance cutoff. Finally, MERGE joins are explicitly specified to avoid the optimizer choosing a HASH join for the coordinate table self-join.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 25211,
+                            "infons": {
+                                "section_type": "METHODS",
+                                "type": "paragraph"
+                            },
+                            "text": "There are three supported join types in SQL Server: Hash, Merge, and Loop. Normally queries are expressed using only the keyword JOIN, leaving the optimizer free to choose the join type when an execution plan for a query is prepared. Join types are described in detail elsewhere. The self-join of the coordinate table presented unique difficulty because of the size of the coordinate table. The optimizer will consistently choose a hash join, which will cause an expensive build of a temporary hash structure. In contrast, the merge join type does not require the temporary structure, and as the data are ordered based on the primary key, this approach is significantly faster.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 25889,
+                            "infons": {
+                                "section_type": "METHODS",
+                                "type": "paragraph"
+                            },
+                            "text": "We optimized the structure of the query with the use of two right associative joins to cause early evaluation of the coordinate and atom ID table joins. We also pushed predicates directly into the join clauses. However, despite these optimizations a great deal of time was spent calculating distances for atoms that are outside the 5.4 \u00c5 distance of interest. These additional calculations added a significant performance burden, making it impractical to run this query over more than a handful of trajectories.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 26402,
+                            "infons": {
+                                "section_type": "METHODS",
+                                "type": "paragraph"
+                            },
+                            "text": "In our spatial indexing implementation we subdivided the periodic box used for simulation and divided it evenly into bins with dimensions of at least 5.4 \u00c5 on all axes. The bins were assigned consecutive numbers creating a one-dimensional hash. For our simulation data, the number of bins in a system does not exceed 232-1 bins, so it is possible to represent the bin index as a SQL 32bit integer. Equation 1.1 was used to sort the atoms based on their coordinates x, y, and z into the bin array. Subsequently, Eq. 1.2 was used to calculate the bin index and this result was stored in the coordinate table, alongside the coordinates. The bins table was created for each simulation, in which each row is the list of 26 adjacent bins for a given bin index. This table was populated using a C# user defined function at the time the simulation coordinate data are loaded.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 27271,
+                            "infons": {
+                                "section_type": "METHODS",
+                                "type": "paragraph"
+                            },
+                            "text": "With the bins table in place, the contact query presented earlier can be modified slightly to filter coordinates considered using the bin column in the coordinate table. The modification is shown in bold (Figure 7). This simple join allows the query optimizer to quickly remove distance calculations based on a comparison of integer columns instead of projecting and transforming x, y, z from each half of the join. In this way, the bins table acted as a highly optimized spatial index.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 27758,
+                            "infons": {
+                                "section_type": "METHODS",
+                                "type": "title_2"
+                            },
+                            "text": "Table and index compression in the database",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 27802,
+                            "infons": {
+                                "section_type": "METHODS",
+                                "type": "paragraph"
+                            },
+                            "text": "To investigate the effect of compression on database queries, we returned to the contacts query introduced earlier in this section, as it is a commonly used and computationally expensive query in trajectory analysis and reviewed performance data collected against all combinations of compression options across our sample set of 11 protein simulations. We also considered non-compressed and fully page compressed contact queries for the first 1 nanosecond that did not utilize the spatial indexing optimization.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 28314,
+                            "infons": {
+                                "section_type": "METHODS",
+                                "type": "title_2"
+                            },
+                            "text": "Database and System setup",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 28340,
+                            "infons": {
+                                "section_type": "METHODS",
+                                "type": "paragraph"
+                            },
+                            "text": "Two Dell R710 servers each equipped with dual hex-core processors were used to collect run-time data. The base operating system is Windows Server 2008 Enterprise x64 R2 and the database engine used was SQL Server 2008 R2 Enterprise x64 R2. Detailed hardware and software configuration information is shown in Table 2.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 28658,
+                            "infons": {
+                                "file": "T2.xml",
+                                "id": "T2",
+                                "section_type": "TABLE",
+                                "type": "table_caption"
+                            },
+                            "text": "Detailed hardware and software configuration information",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 28715,
+                            "infons": {
+                                "file": "T2.xml",
+                                "id": "T2",
+                                "section_type": "TABLE",
+                                "type": "table",
+                                "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<table frame=\"hsides\" rules=\"groups\"><thead><tr><th align=\"left\">Hardware</th><th align=\"left\">Description</th></tr></thead><tbody><tr><td align=\"left\"><bold>Server</bold></td><td align=\"left\">Dell R710</td></tr><tr><td align=\"left\"><bold>Processors</bold></td><td align=\"left\">Dual Intel Xeon X5650s (x64 Hex Core)</td></tr><tr><td align=\"left\"><bold>Memory</bold></td><td align=\"left\">48 GB</td></tr><tr><td align=\"left\"><bold>Storage</bold></td><td align=\"left\">H700 Integrated RAID SAS Disk Controller</td></tr><tr><td align=\"left\">\u2003<bold>System Disks</bold></td><td align=\"left\">136 GB on two 15K RPM 150GB SAS disks, RAID 1 (Mirrored)</td></tr><tr><td align=\"left\">\u2003<bold>Data Disks</bold></td><td align=\"left\">7,450 GB on six 7200 RPM 2TB SAS disks, RAID 0 (Striped)</td></tr><tr><td colspan=\"2\"><hr/></td></tr><tr><td align=\"left\"><bold>Software</bold></td><td/></tr><tr><td colspan=\"2\"><hr/></td></tr><tr><td align=\"left\"><bold>OS</bold></td><td align=\"left\">Windows Server 2008 R2 Enterprise x64</td></tr><tr><td align=\"left\"><bold>Database</bold></td><td align=\"left\">SQL Server 2008 R2 Enterprise x64</td></tr><tr><td align=\"left\">\u2003<bold>SQL</bold></td><td align=\"left\">Enabled for all CPUs</td></tr><tr><td align=\"left\">\u2003<bold>SQL Memory</bold></td><td align=\"left\">Limited to 40,960 MB (8GB for OS)</td></tr><tr><td align=\"left\"><bold>Anti-Virus</bold></td><td align=\"left\">Sophos Endpoint Security and Control, version 9</td></tr></tbody></table>\n"
+                            },
+                            "text": "Hardware\tDescription\t \tServer\tDell R710\t \tProcessors\tDual Intel Xeon X5650s (x64 Hex Core)\t \tMemory\t48 GB\t \tStorage\tH700 Integrated RAID SAS Disk Controller\t \t\u2003System Disks\t136 GB on two 15K RPM 150GB SAS disks, RAID 1 (Mirrored)\t \t\u2003Data Disks\t7,450 GB on six 7200 RPM 2TB SAS disks, RAID 0 (Striped)\t \t\t \tSoftware\t\t \t\t \tOS\tWindows Server 2008 R2 Enterprise x64\t \tDatabase\tSQL Server 2008 R2 Enterprise x64\t \t\u2003SQL\tEnabled for all CPUs\t \t\u2003SQL Memory\tLimited to 40,960 MB (8GB for OS)\t \tAnti-Virus\tSophos Endpoint Security and Control, version 9\t \t",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 29270,
+                            "infons": {
+                                "section_type": "METHODS",
+                                "type": "paragraph"
+                            },
+                            "text": "One database called hash3d-700 was created on each server and populated with a copy of coordinate trajectory tables and dimension tables from our primary data warehouse. The base coordinate tables were then copied to additional tables, adding an additional suffix to indicate data and index compression settings. After all coordinate tables were created and populated, identical primary keys, constraints and indexes were applied. Tables were then compressed using ALTER TABLE statements. A script was run on all the coordinate table compression combinations to create contact tables. The size of each hash3d-700 database size was then adjusted upwards to 1.2 TB and the SQL Server process shutdown. Finally, the data and system partitions were defragmented with the defrag.exe to clean up file system fragmentation caused by auto-growth during loading.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 30124,
+                            "infons": {
+                                "section_type": "METHODS",
+                                "type": "paragraph"
+                            },
+                            "text": "Queries were run in SQL Server Management studio running on a remote machine with a connection to the test database server. Queries were executed with SET STATISTICS IO ON and SET STATISTICS TIME ON to capture logical and physical read statistics. To control for performance gains caused by data and/or query plan caching; and background write operations from result tables, a series of three system statements were executed prior to running the test query (Additional file 4, Figure S1). The CHECKPOINT statement insures that any dirty pages (such as those result rows written out by the previous query) are written to disk. The FREESYSTEMCACHE command eliminates any stored query or procedure plans. The DROPCLEANBUFFERS flushes out the current cache leaving it effectively cold, as though SQL Server had just started. During the collection of run-time data, access to both servers was restricted and only the query of interest was permitted to run.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 31076,
+                            "infons": {
+                                "section_type": "METHODS",
+                                "type": "paragraph"
+                            },
+                            "text": "We calculated the pairs of heavy-atom contacts for the 1st nanosecond of each simulation (1000 frames) and compared the execution times with and without spatial indexing. Queries were written in SQL and executed in MS SQL management studio as described in the above section. Heavy-atom contacts calculations were performed in triplicate for each simulation, ensuring the system cache was cleared between each run to obtain accurate performance statistics. Statistics were calculated using a two sample two-sided t-test for unequal variances.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 31618,
+                            "infons": {
+                                "section_type": "METHODS",
+                                "type": "paragraph"
+                            },
+                            "text": "We investigated 9 sets of compression options on both data and indices for each coordinate table for the 11 simulations in our test set. We recorded the extent of compression of each set of compression options compared with the non-compressed coordinate tables. We then ran an initial test of performance by investigating the execution time and disk input and output operations of the heavy-atom contacts query over the first nanosecond of the simulation. Subsequently, we examined the execution time of the heavy-atom contacts query over the full 51 ns (51,000 frames) native state trajectory for each of the proteins in our test set.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 32254,
+                            "infons": {
+                                "section_type": "COMP_INT",
+                                "type": "title_1"
+                            },
+                            "text": "Competing interests",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 32274,
+                            "infons": {
+                                "section_type": "COMP_INT",
+                                "type": "paragraph"
+                            },
+                            "text": "The authors declare that they have no competing interests.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 32333,
+                            "infons": {
+                                "section_type": "AUTH_CONT",
+                                "type": "title_1"
+                            },
+                            "text": "Authors' contributions",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 32356,
+                            "infons": {
+                                "section_type": "AUTH_CONT",
+                                "type": "paragraph"
+                            },
+                            "text": "RDT, AMS, DACB and VD designed the study, analyzed and interpreted the data and prepared the manuscript. RDT and AMS wrote the queries and carried out the run-time comparisons. DACB developed the original idea for the study. All authors read and approved the final manuscript.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 32633,
+                            "infons": {
+                                "section_type": "SUPPL",
+                                "type": "title_1"
+                            },
+                            "text": "Supplementary Material",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 32656,
+                            "infons": {
+                                "section_type": "ACK_FUND",
+                                "type": "title_1"
+                            },
+                            "text": "Acknowledgements",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 32673,
+                            "infons": {
+                                "section_type": "ACK_FUND",
+                                "type": "paragraph"
+                            },
+                            "text": "We are grateful for financial support provided by the National Institutes of Health (GM50789). D.A.C.B's involvement was supported in part by the University of Washington's eScience Institute. Dynameomics simulations were performed using computer time through the DOE Office of Biological Research as provided by the National Energy Research Scientific Computing Center, which is supported by the Office of Science of the U.S. Department of Energy under contract no. DE-AC02-05CH11231. We are also grateful for support from Microsoft for development of our database.",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 33240,
+                            "infons": {
+                                "fpage": "6679",
+                                "issue": "19",
+                                "lpage": "6685",
+                                "name_0": "surname:Karplus;given-names:M",
+                                "name_1": "surname:Kuriyan;given-names:J",
+                                "pub-id_doi": "10.1073/pnas.0408930102",
+                                "pub-id_pmid": "15870208",
+                                "section_type": "REF",
+                                "source": "Proc Natl Acad Sci USA",
+                                "type": "ref",
+                                "volume": "102",
+                                "year": "2005"
+                            },
+                            "text": "Molecular dynamics and protein function",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 33280,
+                            "infons": {
+                                "fpage": "573",
+                                "issue": "4",
+                                "lpage": "582",
+                                "name_0": "surname:Fersht;given-names:AR",
+                                "name_1": "surname:Daggett;given-names:V",
+                                "pub-id_doi": "10.1016/S0092-8674(02)00620-7",
+                                "pub-id_pmid": "11909527",
+                                "section_type": "REF",
+                                "source": "Cell",
+                                "type": "ref",
+                                "volume": "108",
+                                "year": "2002"
+                            },
+                            "text": "Protein folding and unfolding at atomic resolution",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 33331,
+                            "infons": {
+                                "fpage": "333",
+                                "lpage": "366",
+                                "name_0": "surname:Chiti;given-names:F",
+                                "name_1": "surname:Dobson;given-names:CM",
+                                "pub-id_doi": "10.1146/annurev.biochem.75.101304.123901",
+                                "pub-id_pmid": "16756495",
+                                "section_type": "REF",
+                                "source": "Annu Rev Biochem",
+                                "type": "ref",
+                                "volume": "75",
+                                "year": "2006"
+                            },
+                            "text": "Protein misfolding, functional amyloid, and human disease",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 33389,
+                            "infons": {
+                                "fpage": "423",
+                                "issue": "4",
+                                "lpage": "435",
+                                "name_0": "surname:van der Kamp;given-names:MW",
+                                "name_1": "surname:Schaeffer;given-names:RD",
+                                "name_2": "surname:Jonsson;given-names:AL",
+                                "name_3": "surname:Scouras;given-names:AD",
+                                "name_4": "surname:Simms;given-names:AM",
+                                "name_5": "surname:Toofanny;given-names:RD",
+                                "name_6": "surname:Benson;given-names:NC",
+                                "name_7": "surname:Anderson;given-names:PC",
+                                "name_8": "surname:Merkley;given-names:ED",
+                                "name_9": "surname:Rysavy;given-names:S",
+                                "pub-id_doi": "10.1016/j.str.2010.01.012",
+                                "pub-id_pmid": "20399180",
+                                "section_type": "REF",
+                                "source": "Structure",
+                                "type": "ref",
+                                "volume": "18",
+                                "year": "2010"
+                            },
+                            "text": "Dynameomics: a comprehensive database of protein dynamics",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 33447,
+                            "infons": {
+                                "fpage": "46",
+                                "issue": "1",
+                                "lpage": "54",
+                                "name_0": "surname:Schaeffer;given-names:RD",
+                                "name_1": "surname:Jonsson;given-names:AL",
+                                "name_2": "surname:Simms;given-names:AM",
+                                "name_3": "surname:Daggett;given-names:V",
+                                "pub-id_doi": "10.1093/bioinformatics/btq625",
+                                "pub-id_pmid": "21068000",
+                                "section_type": "REF",
+                                "source": "Bioinformatics",
+                                "type": "ref",
+                                "volume": "27",
+                                "year": "2011"
+                            },
+                            "text": "Generation of a consensus protein domain dictionary",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 33499,
+                            "infons": {
+                                "fpage": "2150",
+                                "issue": "10",
+                                "lpage": "2160",
+                                "name_0": "surname:Day;given-names:R",
+                                "name_1": "surname:Beck;given-names:DA",
+                                "name_2": "surname:Armen;given-names:RS",
+                                "name_3": "surname:Daggett;given-names:V",
+                                "pub-id_pmid": "14500873",
+                                "section_type": "REF",
+                                "source": "Protein Science",
+                                "type": "ref",
+                                "volume": "12",
+                                "year": "2003"
+                            },
+                            "text": "A consensus view of fold space: combining SCOP, CATH, and the Dali Domain Dictionary",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 33584,
+                            "infons": {
+                                "fpage": "369",
+                                "issue": "6",
+                                "lpage": "377",
+                                "name_0": "surname:Simms;given-names:AM",
+                                "name_1": "surname:Toofanny;given-names:RD",
+                                "name_2": "surname:Kehl;given-names:C",
+                                "name_3": "surname:Benson;given-names:NC",
+                                "name_4": "surname:Daggett;given-names:V",
+                                "pub-id_doi": "10.1093/protein/gzn012",
+                                "pub-id_pmid": "21829533",
+                                "section_type": "REF",
+                                "source": "Protein Engineering Design & Selection",
+                                "type": "ref",
+                                "volume": "21",
+                                "year": "2008"
+                            },
+                            "text": "Dynameomics: design of a computational lab workflow and scientific data repository for protein simulations",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 33691,
+                            "infons": {
+                                "name_0": "surname:Clarkson;given-names:K",
+                                "section_type": "REF",
+                                "source": "Nearest-Neighbor Methods for Learning and Visions: Theory and Practice",
+                                "type": "ref",
+                                "year": "2005"
+                            },
+                            "text": "Nearest-neighbor searching and metric space dimensions",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 33746,
+                            "infons": {
+                                "fpage": "579",
+                                "issue": "3",
+                                "lpage": "588",
+                                "name_0": "surname:Lefebvre;given-names:S",
+                                "name_1": "surname:Hoppe;given-names:H",
+                                "pub-id_doi": "10.1145/1141911.1141926",
+                                "section_type": "REF",
+                                "source": "ACM Transactions on Graphics",
+                                "type": "ref",
+                                "volume": "25",
+                                "year": "2006"
+                            },
+                            "text": "Perfect Spatial Hashing",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 33770,
+                            "infons": {
+                                "name_0": "surname:Hockney;given-names:RW",
+                                "name_1": "surname:Eastwood;given-names:JW",
+                                "section_type": "REF",
+                                "source": "Computer Simulation Using Particles",
+                                "type": "ref",
+                                "year": "1981"
+                            },
+                            "text": "",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 33771,
+                            "infons": {
+                                "name_0": "surname:Allen;given-names:MP",
+                                "name_1": "surname:Tildesley;given-names:DJ",
+                                "section_type": "REF",
+                                "source": "Computer Simulation of Liquids",
+                                "type": "ref",
+                                "year": "1987"
+                            },
+                            "text": "",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 33772,
+                            "infons": {
+                                "fpage": "921",
+                                "issue": "7",
+                                "lpage": "927",
+                                "name_0": "surname:Yip;given-names:V",
+                                "name_1": "surname:Elber;given-names:R",
+                                "pub-id_doi": "10.1002/jcc.540100709",
+                                "section_type": "REF",
+                                "source": "Journal of Computational Chemistry",
+                                "type": "ref",
+                                "volume": "10",
+                                "year": "1989"
+                            },
+                            "text": "Calculations of a list of neighbors in Molecular Dynamics simulations",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 33842,
+                            "infons": {
+                                "name_0": "surname:Beck;given-names:DAC",
+                                "name_1": "surname:Alonso;given-names:DOV",
+                                "name_2": "surname:Daggett;given-names:V",
+                                "section_type": "REF",
+                                "source": "in lucem Molecular Mechanics (ilmm)",
+                                "type": "ref",
+                                "year": "2000"
+                            },
+                            "text": "",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 33843,
+                            "infons": {
+                                "fpage": "112",
+                                "issue": "1",
+                                "lpage": "120",
+                                "name_0": "surname:Beck;given-names:DAC",
+                                "name_1": "surname:Daggett;given-names:V",
+                                "pub-id_doi": "10.1016/j.ymeth.2004.03.008",
+                                "section_type": "REF",
+                                "source": "Methods in Enzymology",
+                                "type": "ref",
+                                "volume": "34",
+                                "year": "2004"
+                            },
+                            "text": "Methods for molecular dynamics simulations of protein folding/unfolding in solution",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 33927,
+                            "infons": {
+                                "fpage": "353",
+                                "issue": "6",
+                                "lpage": "368",
+                                "name_0": "surname:Beck;given-names:DA",
+                                "name_1": "surname:Jonsson;given-names:AL",
+                                "name_2": "surname:Schaeffer;given-names:RD",
+                                "name_3": "surname:Scott;given-names:KA",
+                                "name_4": "surname:Day;given-names:R",
+                                "name_5": "surname:Toofanny;given-names:RD",
+                                "name_6": "surname:Alonso;given-names:DO",
+                                "name_7": "surname:Daggett;given-names:V",
+                                "pub-id_doi": "10.1093/protein/gzn011",
+                                "pub-id_pmid": "21829533",
+                                "section_type": "REF",
+                                "source": "Protein Engineering Design & Selection",
+                                "type": "ref",
+                                "volume": "21",
+                                "year": "2008"
+                            },
+                            "text": "Dynameomics: mass annotation of protein dynamics and unfolding in water by high-throughput atomistic molecular dynamics simulations",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 34059,
+                            "infons": {
+                                "name_0": "surname:Bromley;given-names:D",
+                                "name_1": "surname:Rysavy;given-names:S",
+                                "name_2": "surname:Beck;given-names:DA",
+                                "name_3": "surname:Daggett;given-names:V",
+                                "section_type": "REF",
+                                "source": "Microsoft Research eScience Workshop",
+                                "type": "ref",
+                                "year": "2010"
+                            },
+                            "text": "DIVE: A Data Intensive Visualization Engine",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 34103,
+                            "infons": {
+                                "fpage": "478",
+                                "issue": "5",
+                                "lpage": "485",
+                                "name_0": "surname:Bowers;given-names:PM",
+                                "name_1": "surname:Schaufler;given-names:LE",
+                                "name_2": "surname:Klevit;given-names:RE",
+                                "pub-id_doi": "10.1038/8283",
+                                "pub-id_pmid": "10331877",
+                                "section_type": "REF",
+                                "source": "Nat Struct Biol",
+                                "type": "ref",
+                                "volume": "6",
+                                "year": "1999"
+                            },
+                            "text": "A folding transition and novel zinc finger accessory domain in the transcription factor ADR1",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 34196,
+                            "infons": {
+                                "fpage": "191",
+                                "issue": "3",
+                                "lpage": "205",
+                                "name_0": "surname:Shimizu;given-names:H",
+                                "name_1": "surname:Park;given-names:S",
+                                "name_2": "surname:Lee;given-names:D",
+                                "name_3": "surname:Shoun;given-names:H",
+                                "name_4": "surname:Shiro;given-names:Y",
+                                "pub-id_doi": "10.1016/S0162-0134(00)00103-3",
+                                "pub-id_pmid": "11051564",
+                                "section_type": "REF",
+                                "source": "J Inorg Biochem",
+                                "type": "ref",
+                                "volume": "81",
+                                "year": "2000"
+                            },
+                            "text": "Crystal structures of cytochrome P450nor and its mutants (Ser286-->Val, Thr) in the ferric resting state at cryogenic temperature: a comparative analysis with monooxygenase cytochrome P450s",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 34386,
+                            "infons": {
+                                "name_0": "surname:Fritchey;given-names:G",
+                                "name_1": "surname:Dam;given-names:S",
+                                "section_type": "REF",
+                                "source": "SQL Server 2008 Query Performance Tuning Distilled",
+                                "type": "ref",
+                                "year": "2009"
+                            },
+                            "text": "",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 34387,
+                            "infons": {
+                                "name_0": "surname:David;given-names:MM",
+                                "section_type": "REF",
+                                "source": "Advanced ANSI SQL data modeling and structure processing",
+                                "type": "ref",
+                                "year": "1999"
+                            },
+                            "text": "",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        },
+                        {
+                            "bioctype": "BioCPassage",
+                            "offset": 34388,
+                            "infons": {
+                                "comment": " in press ",
+                                "name_0": "surname:Simms;given-names:AM",
+                                "name_1": "surname:Daggett;given-names:V",
+                                "section_type": "REF",
+                                "source": "J of Supercomp",
+                                "type": "ref",
+                                "year": "2011"
+                            },
+                            "text": "Protein simulation data in the relational model",
+                            "sentences": [],
+                            "annotations": [],
+                            "relations": []
+                        }
+                    ],
+                    "annotations": [],
+                    "relations": []
+                }
+            ]
+        }
+    ]
+}

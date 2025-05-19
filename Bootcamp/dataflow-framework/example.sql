@@ -1,0 +1,1 @@
+CREATE TABLE COMPANIES (company_name varchar(20), id int);

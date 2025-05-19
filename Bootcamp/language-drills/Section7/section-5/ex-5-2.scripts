@@ -1,0 +1,3 @@
+# Add this section to pyproject.toml
+[project.scripts]
+mytool = "mypkg.cli:main"

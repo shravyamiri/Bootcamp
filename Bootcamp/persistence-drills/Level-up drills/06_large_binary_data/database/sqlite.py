@@ -1,0 +1,22 @@
+from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
+from sqlalchemy.orm import sessionmaker
+from models.user import Base
+from models.product import Base as ProductBase
+from models.email_history import Base as EmailHistoryBase
+from models.account import Base as AccountBase
+from models.user_profile import Base as UserProfileBase
+
+SQLALCHEMY_DATABASE_URL = "sqlite+aiosqlite:///users.db"
+
+engine = create_async_engine(SQLALCHEMY_DATABASE_URL, echo=True)
+AsyncSessionLocal = sessionmaker(
+    engine, class_=AsyncSession, expire_on_commit=False
+)
+
+async def init_db():
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
+        await conn.run_sync(ProductBase.metadata.create_all)
+        await conn.run_sync(EmailHistoryBase.metadata.create_all)
+        await conn.run_sync(AccountBase.metadata.create_all)
+        await conn.run_sync(UserProfileBase.metadata.create_all)

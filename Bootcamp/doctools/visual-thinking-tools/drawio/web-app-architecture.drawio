@@ -1,0 +1,31 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36" version="27.0.6">
+  <diagram name="Page-1" id="iIypSOF8HvzeB1Yxxbbz">
+    <mxGraphModel dx="786" dy="451" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="MpVVy5bDT2lKAzjqr8d--1" value="Client&lt;div&gt;(Web browser, Mobile app)&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+          <mxGeometry x="295" y="60" width="145" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="MpVVy5bDT2lKAzjqr8d--2" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Backend&lt;/div&gt;&lt;div&gt;(Rest API)&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#008a00;fontColor=#ffffff;strokeColor=#005700;" vertex="1" parent="1">
+          <mxGeometry x="315" y="250" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="MpVVy5bDT2lKAzjqr8d--4" value="&lt;div&gt;Database&lt;/div&gt;&lt;div&gt;( MySQL)&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ffcd28;strokeColor=#d79b00;gradientColor=#ffa500;" vertex="1" parent="1">
+          <mxGeometry x="340" y="420" width="90" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="MpVVy5bDT2lKAzjqr8d--10" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=0.43;exitY=0.006;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="MpVVy5bDT2lKAzjqr8d--4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="330" y="330" as="sourcePoint" />
+            <mxPoint x="380" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MpVVy5bDT2lKAzjqr8d--11" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.413;exitY=-0.042;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="MpVVy5bDT2lKAzjqr8d--2" target="MpVVy5bDT2lKAzjqr8d--1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="330" y="330" as="sourcePoint" />
+            <mxPoint x="380" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

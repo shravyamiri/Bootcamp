@@ -1,0 +1,42 @@
+for command : python main.py --input input.txt
+
+[2025-05-10 10:00:00] INFO     Starting in single file mode
+[2025-05-10 10:00:00] INFO     Processing file: sample.txt
+[2025-05-10 10:00:01] INFO     File processed successfully: sample.txt
+[2025-05-10 10:00:01] INFO     Exiting after one-shot processing
+
+for command python main.py --watch
+[2025-05-10 10:01:00] INFO     Starting in watch mode
+[2025-05-10 10:01:00] INFO     Monitoring directory: watch_dir/unprocessed/
+[2025-05-10 10:01:01] INFO     FastAPI server started at http://0.0.0.0:8000
+
+[2025-05-10 10:02:15] INFO     Detected new file: watch_dir/unprocessed/testfile1.txt
+[2025-05-10 10:02:15] INFO     Processing file: testfile1.txt
+[2025-05-10 10:02:16] INFO     File processed successfully: testfile1.txt
+
+curl -F 'file=@sample.txt' http://localhost:8000/upload
+{
+  "filename": "sample.txt",
+  "status": "uploaded and processing started"
+}
+
+[2025-05-10 10:03:30] INFO     File received via API: input.txt
+[2025-05-10 10:03:30] INFO     Processing file: input.txt
+[2025-05-10 10:03:31] INFO     File processed successfully: input.txt
+
+> make build-docker
+docker build -t file-processor .
+[+] Building 5.3s (12/12) FINISHED
+ => [internal] load build definition from Dockerfile
+ => [internal] load .dockerignore
+ => ...
+ => exporting to image
+ => => writing image sha256:abc123def456...
+ => => naming to docker.io/library/file-processor
+Successfully built file-processor
+
+> make run-docker
+docker run -p 8000:8000 file-processor
+[2025-05-10 10:04:00] INFO     Starting in watch mode inside Docker
+[2025-05-10 10:04:00] INFO     Monitoring directory: watch_dir/unprocessed/
+[2025-05-10 10:04:01] INFO     FastAPI server started at http://0.0.0.0:8000

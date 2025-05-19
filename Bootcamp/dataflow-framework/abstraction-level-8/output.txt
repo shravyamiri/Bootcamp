@@ -1,0 +1,21 @@
+[INFO] Starting system...
+[INFO] Recovery mode: Moving files from underprocess/ to unprocessed/
+[INFO] Dashboard available at http://localhost:8000
+
+[WATCHER] Found new file: system_logs_2025-05-10.txt
+[WATCHER] Moving system_logs_2025-05-10.txt → underprocess/
+[PROCESSOR] Processing file: system_logs_2025-05-10.txt
+[TRACE] Line: "[ERROR] Disk full" → ['start', 'error', 'general', 'end']
+[TRACE] Line: "[INFO] Service restarted" → ['start', 'general', 'end']
+[PROCESSOR] Finished processing system_logs_2025-05-10.txt
+[WATCHER] Moving system_logs_2025-05-10.txt → processed/
+
+[WATCHER] Waiting for new files in unprocessed/...
+
+
+http://localhost:8000/stats
+http://localhost:8000/health
+https://127.0.0.1:8000/
+http://0.0.0.0:8000/
+http://localhost:8000/
+
