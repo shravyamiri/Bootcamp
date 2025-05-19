@@ -1,0 +1,9 @@
+pyproject.toml
+shravya_hello/cli.py
+shravya_hello/setup.py
+shravya_hello.egg-info/PKG-INFO
+shravya_hello.egg-info/SOURCES.txt
+shravya_hello.egg-info/dependency_links.txt
+shravya_hello.egg-info/entry_points.txt
+shravya_hello.egg-info/requires.txt
+shravya_hello.egg-info/top_level.txt

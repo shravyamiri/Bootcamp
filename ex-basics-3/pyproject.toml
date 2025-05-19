@@ -1,0 +1,15 @@
+[project]
+name = "mycli"
+version = "0.1.0"
+description = "A simple Typer-based CLI app"
+authors = [{ name="Shravya", email="you@example.com" }]
+dependencies = ["typer[all]"]
+readme = "README.md"
+requires-python = ">=3.7"
+
+[project.scripts]
+mycli = "mycli.cli:app"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"

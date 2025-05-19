@@ -1,0 +1,2 @@
+[console_scripts]
+shravya-hello = shravya_hello.cli:main
