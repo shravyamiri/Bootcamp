@@ -1,0 +1,27 @@
+data_source:
+  type: pmc
+  bioc_pmc_url: "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_xml"
+  api_key: "your-ncbi-api-key"   # Replace with your actual NCBI API key
+
+api:
+  key: "beafaa69c8ca82900b029902b54c78e8a108"
+  host: "0.0.0.0"
+  port: 8000
+
+logging:
+  level: "info"
+
+watched_folder:
+  path: "./input"
+
+storage:
+  type: duckdb
+  path: "./data/database.db"
+  csv_path: "./data/output.csv"
+
+extract:
+  title: true
+  abstract: true
+  figure_captions: true
+  figure_urls: true
+  named_entities: true  # Optional: if your code supports NER
